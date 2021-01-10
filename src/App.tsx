@@ -21,7 +21,6 @@ function App() {
           <UserDetails />
         </PageLayout>
       </Route>
-
     </Router>
   );
 }

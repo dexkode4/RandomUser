@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Button() {
+function Button({}) {
     return (
         <div>
-            
+            {/* <button className={`${state === "all" && styles.active}`} onClick={() => setstate("all")}>All</button> */}
         </div>
     )
 }
