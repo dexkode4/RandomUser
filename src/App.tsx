@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import Header from './components/Header';
 import PageLayout from './components/PageLayout';
 import UserDetails from './components/UserDetails';
 import UserList from './components/UserList';
@@ -12,6 +13,7 @@ function App() {
     <Router>
       <Route path="/" exact>
         <PageLayout>
+          <Header title={""} />
           <UserList />
         </PageLayout>
       </Route>

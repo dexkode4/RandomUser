@@ -12,12 +12,16 @@ export const UserContextProvider = ({ children }: Propstype) => {
     const [user, setUser] = useState([]);
     useEffect(() => {
         fetchUsers().then(res => {
-            setUser(res.results)
+            setUser(res && res.results)
         })
 
     }, [])
+
+    const state: any = {
+        user: user
+    }
     return (
-        <UserContext.Provider value={user} >
+        <UserContext.Provider value={state}>
             {children}
         </UserContext.Provider>
     )

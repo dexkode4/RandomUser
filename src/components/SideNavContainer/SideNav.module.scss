@@ -1,5 +1,40 @@
+@import '../../styles/variables';
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    width: 62%;
+}
+
 .sideNav {
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
     padding-left: 6rem;
+    padding-right: 6rem;
     width: 50%;
+
+    & .showUser {
+        color: $color-white;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+    }
+
+    &Greetings {
+        font-size: 1.7rem;
+        font-weight: 100;
+        margin-bottom: 1.2rem;
+    }
+
+    &Name{
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+
+    &WelcomeMsg {
+        font-weight: 100;
+        margin-bottom: 2.5rem;
+    }
 }

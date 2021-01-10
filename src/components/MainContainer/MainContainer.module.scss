@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .mainContainer {
-    background-color: #F7F7FF;
+    background-color: $color-bg-light;
     border-radius: 1.75rem;
     height: 100%;
     padding: 5rem;

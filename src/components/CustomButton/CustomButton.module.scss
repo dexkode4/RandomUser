@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & p {
+        color: $color-white;
+        font-weight: 100;
+        font-size: .8rem;
+    }
+}
+.button {
+    border: none;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 1rem 1.3rem;
+    margin-bottom: 1rem;
+    outline-width: 0;
+    transition: all .3s ease;
+
+    &Active{
+        transform: scale(1.15);
+        margin-bottom: 1.4rem;
+    }
+
+    & svg {
+        font-size: 3rem;
+        color: $color-white;
+    }
+
+    &All{
+        background-color: $color-pink;
+    }
+    &Male{
+        background-color: $color-torquoise;
+    }
+    &Female{
+        background-color: $color-purple;
+    }
+}
