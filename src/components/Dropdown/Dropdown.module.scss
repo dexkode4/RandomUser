@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+
+
+.dropdown{
+    align-items: center;
+    border-radius: 3rem;
+    background: $color-grey-1;
+    cursor: pointer;
+    color: $color-darkGrey;
+    display: flex;
+    font-size: .9rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: relative;
+    width: 20%;
+
+    &Options{
+        background: $color-grey-1;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,0.1);
+        height: 10rem;
+        left: 0;
+        position: absolute;
+        padding: 1rem 0;
+        overflow-y: scroll;
+        top: calc(100% + .5rem);
+        width: 100%;
+        z-index: 100;
+
+        & > ul {
+            list-style: none;
+            position: relative;
+
+            & > li {
+                padding: .5rem;
+
+                &:hover{
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+}

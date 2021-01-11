@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+
+.container{
+    display: flex;
+    align-items: center;
+    & span {
+        font-size: .8rem;
+    }
+}
+.toggle{
+    background-color: $color-torquoise-1;
+    border-radius: 5rem;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    height: 1.4rem;
+    margin-right: 5px;
+    transition: all .3s ease-in-out;
+    width: 2.5rem;
+
+
+    &Off{
+        background-color: $color-grey-1; 
+    }
+    &On{
+        background-color: $color-torquoise-1;
+    }
+    &Ball{
+        background: $color-white;
+        border-radius: 50%;
+        height: 1.2rem;
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all .2s ease-in-out;
+        width: 1.2rem;
+
+        &Move{
+            left: 50%;
+        }
+    }
+
+}

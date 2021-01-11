@@ -6,7 +6,7 @@ type ButtonType = {
     icon: JSX.Element,
     title: string,
     userType: string,
-    setState: any
+    setState: any,
 }
 
 
@@ -18,9 +18,8 @@ function Button({ icon, title, userType, setState }: ButtonType) {
                     : title === "Male Users" ? styles.buttonMale
                         : styles.buttonFemale,
                 userType === title && styles.buttonActive)}
-                onClick={() => {
-                    setState(title)
-                    }}>{icon}</button>
+                onClick={() => setState(title)
+                }>{icon}</button>
             <p>{title}</p>
         </div>
     )

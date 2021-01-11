@@ -4,14 +4,16 @@ import { BsSearch } from 'react-icons/bs';
 import styles from './SearchField.module.scss';
 
 type SearchFieldType = {
-    placeholder: string
+    placeholder: string,
+    size: string,
+    handleChange?: any
 }
 
-function SearchField({ placeholder }: SearchFieldType) {
+function SearchField({ placeholder, size, handleChange }: SearchFieldType) {
     return (
-        <div className={cx(styles.container, styles.bigBtn)}>
+        <div className={cx(styles.container, size === "big" ? styles.bigBtn : styles.smallBtn)}>
             <BsSearch />
-            <input placeholder={placeholder} />
+            <input placeholder={placeholder} onChange={handleChange} />
         </div>
     )
 }

@@ -1,13 +1,30 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../context/userContext';
+import React, { useState } from 'react'
+import Header from '../Header';
 import styles from './UserList.module.scss';
 
-function UserList() {
-    // const { user } = useContext(UserContext)
+
+type UserListType = {
+    data?: object[],
+    type: string,
+    isLoading: boolean
+}
+
+function UserList({ data, type, isLoading }: UserListType) {
+    const [responseData, setResponseData] = useState(data)
+    console.log(isLoading);
+
     return (
         <div>
+            {/* <Header title={type} data={resPonseData} /> */}
             <p>User list</p>
-            {/* {JSON.stringify(user)} */}
+            { isLoading ? <p>loading...</p> : JSON.stringify(data)
+
+                // (<ol>
+                //     {
+                //         resPonseData?.map((user: any) => <li>{user.name.first}</li>)
+                //     }
+                // </ol>)
+            }
         </div>
     )
 }
