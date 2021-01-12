@@ -5,16 +5,14 @@ import styles from './PageLayout.module.scss';
 
 type PageLayoutProps = {
     children: React.ReactNode,
-    userType: string,
-    setUserType?: any
 }
 
-function PageLayout({ children, userType, setUserType }: PageLayoutProps) {
+function PageLayout({ children }: PageLayoutProps) {
     return (
         <div className={styles.pageLayout}>
 
             <div className={styles.pageLayoutFlex}>
-                <SideNav userType={userType} setUserType={setUserType} />
+                <SideNav/>
                 <MainContainer>
                     {children}
                 </MainContainer>

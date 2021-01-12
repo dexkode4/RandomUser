@@ -1,7 +1,14 @@
 import React, { createContext, useState, useEffect, HtmlHTMLAttributes } from 'react';
 import { fetchUsers } from '../API';
 
-export const UserContext = createContext([]);
+
+interface ContextValues {
+    userCategory: string;
+    handleUserCategory: (T: string) => void;
+  }
+
+
+export const UserContext = createContext<ContextValues | null>(null);
 
 type Propstype = {
     children: React.ReactNode
@@ -9,27 +16,22 @@ type Propstype = {
 
 
 export const UserContextProvider = ({ children }: Propstype) => {
+    const [userCategory, setUserCategory] = useState("All Users");
 
-
-    const [user, setUser] = useState([]);
-    const [filteredUser, setFilteredUser] = useState([]);
-
-    const filtered = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        const data  = user.filter((item: any) => item.name.first.slice(0, value.length) === value)
-
-        setFilteredUser(data)
+    const handleUserCategory = (text: string)  => {
+        setUserCategory(text);
     }
 
-    useEffect(() => {
-        fetchUsers().then(res => {
-            setUser(res && res.results)
-        })
-
-    }, [])
+    const contextValue = React.useMemo(
+        () => ({
+            userCategory,
+            handleUserCategory,
+        }),
+        [userCategory, handleUserCategory]
+      );
 
     return (
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={contextValue}>
             {children}
         </UserContext.Provider>
     )

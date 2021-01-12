@@ -19,12 +19,8 @@ const buttonsDetails = [
     },
 ]
 
-type SideNavType = {
-    userType: string,
-    setUserType: any
-}
 
-function SideNav({ userType, setUserType }: SideNavType) {
+function SideNav() {
     // const [state, setState] = useState("All Users");
 
     return (
@@ -35,7 +31,7 @@ function SideNav({ userType, setUserType }: SideNavType) {
             <header className={styles.showUser}>Show Users</header>
             <div className={styles.buttonGroup}>
                 {
-                    buttonsDetails.map((item, index) => (<Button key={index} title={item.title} icon={item.icon} userType={userType} setState={setUserType} />))
+                    buttonsDetails.map((item, index) => (<Button key={index} title={item.title} icon={item.icon}/>))
                 }
             </div>
         </div>
