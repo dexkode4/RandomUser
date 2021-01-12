@@ -66,14 +66,14 @@ function App() {
     <Router>
       <Route path="/" exact>
         <PageLayout>
-          <Header title={userType} handleChange={handleChange} />
+          <Header handleChange={handleChange} />
           <UserList data={responseData} isLoading={isLoading} />
         </PageLayout>
       </Route>
 
       <Route path="/:userId" exact>
         <PageLayout>
-          <Header title={userType} handleChange={handleChange} />
+          <Header handleChange={handleChange} />
           <UserDetails />
         </PageLayout>
       </Route>

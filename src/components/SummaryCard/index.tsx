@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FiPhoneCall } from 'react-icons/fi';
 import { AiOutlineMail, AiOutlineArrowRight } from 'react-icons/ai';
 import styles from './Summarycard.module.scss';
+import { UserContext } from '../../context/userContext';
 
 
 type SummarycardType = {
@@ -15,6 +16,7 @@ type SummarycardType = {
 
 
 function SummaryCard({ imgUrl, name, street, email, phone, country }: SummarycardType) {
+    const state = useContext(UserContext);
     return (
         <div className={styles.card}>
             <div className={styles.cardImage}>
@@ -28,9 +30,11 @@ function SummaryCard({ imgUrl, name, street, email, phone, country }: Summarycar
                     <span> <FiPhoneCall />{phone}</span>
                 </div>
             </div>
+            
             <div className={styles.cardBtn}>
                 <AiOutlineArrowRight />
             </div>
+            { state?.toggleCountry && <div className={styles.cardCountry}>{country}</div>}
         </div>
     )
 }

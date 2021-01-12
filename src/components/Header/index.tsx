@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../context/userContext';
 import Dropdown from '../Dropdown';
 import SearchField from '../SearchField';
 import Toggle from '../Toggle';
 import styles from './Header.module.scss';
 
 type HeaderType = {
-    title: string,
     handleChange: any
 }
-function Header({ title, handleChange }: HeaderType) {
+function Header({ handleChange }: HeaderType) {
+    const state = useContext(UserContext);
     return (
         <div className={styles.header}>
-            <h2 className={styles.headerTitle}>{title}</h2>
+            <h2 className={styles.headerTitle}>{state?.userCategory}</h2>
             <p>Filter by</p>
             <div className={styles.headerAction}>
                 <SearchField placeholder="Find in list" size="small" handleChange={handleChange} />
                 <Dropdown />
-                <Toggle/>
+                <Toggle />
             </div>
         </div>
     )

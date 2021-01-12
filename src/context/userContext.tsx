@@ -1,11 +1,12 @@
-import React, { createContext, useState, useEffect, HtmlHTMLAttributes } from 'react';
-import { fetchUsers } from '../API';
+import React, { createContext, useState, useMemo } from 'react';
 
 
 interface ContextValues {
     userCategory: string;
     handleUserCategory: (T: string) => void;
-  }
+    handleToggleCountry: () => void;
+    toggleCountry: boolean;
+}
 
 
 export const UserContext = createContext<ContextValues | null>(null);
@@ -17,18 +18,26 @@ type Propstype = {
 
 export const UserContextProvider = ({ children }: Propstype) => {
     const [userCategory, setUserCategory] = useState("All Users");
+    const [toggleCountry, setToggleCountry] = useState(false);
 
-    const handleUserCategory = (text: string)  => {
+    const handleUserCategory = (text: string) => {
         setUserCategory(text);
     }
 
-    const contextValue = React.useMemo(
+    const handleToggleCountry = () => {
+        setToggleCountry(!toggleCountry);
+    }
+
+
+    const contextValue = useMemo(
         () => ({
             userCategory,
             handleUserCategory,
+            handleToggleCountry,
+            toggleCountry
         }),
         [userCategory, handleUserCategory]
-      );
+    );
 
     return (
         <UserContext.Provider value={contextValue}>

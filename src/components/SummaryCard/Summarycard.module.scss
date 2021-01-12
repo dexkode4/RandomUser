@@ -9,6 +9,8 @@
     margin-bottom: 1.5rem;
     padding: 2rem;
     padding-top: 3rem;
+    position: relative;
+    overflow: hidden;
     &Image{
         height: 6rem;
         border-radius: 50%;
@@ -78,4 +80,16 @@
             stroke-width: 2.5rem;
         }
     }
+
+    &Country{
+        color: $color-white;
+        font-size: 1rem;
+        font-weight: 200;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: $color-purple;
+        padding: .3rem .5rem;
+    }
 }
+

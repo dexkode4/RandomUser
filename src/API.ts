@@ -18,7 +18,7 @@ export const getAllUsers = async ({ page }: IUsers) => {
     return await axios.get('https://randomuser.me/api', {
         params: {
             results: 5,
-            page: page
+            page: page,
         }
     })
         .then((res) => {
@@ -32,7 +32,7 @@ export const getMaleUsers = async ({ page }: IUsers) => {
         params: {
             results: 5,
             gender: "male",
-            page: page
+            page: page,
         }
     })
         .then((res) => {
@@ -46,7 +46,7 @@ export const getFemaleUsers = async ({ page }: IUsers) => {
         params: {
             results: 5,
             gender: "female",
-            page: page
+            page: page,
         }
     })
         .then((res) => {
