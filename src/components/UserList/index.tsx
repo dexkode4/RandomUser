@@ -1,29 +1,24 @@
 import React, { useState } from 'react'
 import Header from '../Header';
+import SummaryCard from '../SummaryCard';
 import styles from './UserList.module.scss';
+import {EmptyTableIcon} from '../../assets/svg'
 
 
 type UserListType = {
     data?: object[],
-    type: string,
     isLoading: boolean
 }
 
-function UserList({ data, type, isLoading }: UserListType) {
-    const [responseData, setResponseData] = useState(data)
-    console.log(isLoading);
+function UserList({ data, isLoading }: UserListType) {
 
     return (
         <div>
-            {/* <Header title={type} data={resPonseData} /> */}
-            <p>User list</p>
-            { isLoading ? <p>loading...</p> : JSON.stringify(data)
-
-                // (<ol>
-                //     {
-                //         resPonseData?.map((user: any) => <li>{user.name.first}</li>)
-                //     }
-                // </ol>)
+            { isLoading ? <p>loading...</p>
+                :
+                data?.map((user: any) => (
+                    <SummaryCard imgUrl={user.picture.medium} name={user.name} street={user.location.street} email={user.email} phone={user.phone} country={user.location.country}/>
+                ))
             }
         </div>
     )

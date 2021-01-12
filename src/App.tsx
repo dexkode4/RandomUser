@@ -8,7 +8,6 @@ import PageLayout from './components/PageLayout';
 import UserDetails from './components/UserDetails';
 import UserList from './components/UserList';
 import { getAllUsers, getMaleUsers, getFemaleUsers } from './API'
-import AllUserPage from './pages/allUserPage';
 
 function App() {
   const [userType, setUserType] = useState("All Users");
@@ -22,8 +21,8 @@ function App() {
 
     if (userType === 'Female Users') {
       getFemaleUsers({ page }).then((res) => {
-        setResponseData(res?.results)
         setIsLoading(false)
+        setResponseData(res?.results)
 
       }).catch(err => {
         setIsLoading(false)
@@ -31,8 +30,8 @@ function App() {
 
     } else if (userType === 'Male Users') {
       getMaleUsers({ page }).then((res) => {
-        setResponseData(res?.results)
         setIsLoading(false)
+        setResponseData(res?.results)
 
       }).catch(err => {
         setIsLoading(false)
@@ -64,20 +63,16 @@ function App() {
     <Router>
       <Route path="/" exact>
         <PageLayout userType={userType} setUserType={setUserType}>
-          <Header title={userType} data={responseData} handleChange={handleChange} />
-          <UserList type={userType} data={[]} isLoading={isLoading} />
+          <Header title={userType} handleChange={handleChange} />
+          <UserList data={responseData} isLoading={isLoading} />
         </PageLayout>
       </Route>
 
       <Route path="/:userId" exact>
         <PageLayout userType={userType} setUserType={setUserType}>
-          <Header title={userType} data={responseData} handleChange={handleChange} />
+          <Header title={userType} handleChange={handleChange} />
           <UserDetails />
         </PageLayout>
-      </Route>
-
-      <Route path="/all">
-        <AllUserPage userType={userType} setUserType={setUserType} />
       </Route>
     </Router>
   );

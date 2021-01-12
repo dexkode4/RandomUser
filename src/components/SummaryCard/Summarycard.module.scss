@@ -1,0 +1,81 @@
+@import '../../styles/variables';
+
+.card{
+    border-radius: 1rem;
+    box-shadow:10px 10px 40px #0000000D;
+    background-color: #FCFCFF;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    padding-top: 3rem;
+    &Image{
+        height: 6rem;
+        border-radius: 50%;
+        border: 6px solid $color-torquoise;
+        margin-right: 2rem;
+        overflow: hidden;
+        width: 6rem;
+        & img {
+            width: 100%;
+        }
+
+    }
+
+    &Details{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 70%;
+
+        & h1 {
+            font-size: 1.2rem;
+        }
+
+        & p {
+            color: $color-darkGrey-2;
+        }
+
+        &Contact{
+            color: $color-grey-3;
+            display: flex;
+            align-items: center;
+            font-size: .9rem;
+            flex-wrap: wrap;
+            font-weight: 200;
+
+            & span {
+                display: flex;
+                align-items: center;
+                margin-bottom: .3rem;
+               &:first-child{
+                margin-right: .5rem;
+               }
+
+               & svg{
+                   color:  #BABDD1;
+                   font-size: 1.2rem;
+                   margin-right: .4rem;
+               }
+            }
+        }
+    }
+
+    &Btn{
+        align-self: flex-end;
+        border-radius: .7rem;
+        background-color: $color-torquoise;
+        box-shadow: 2px 15px 30px #30BBB574;
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+        height: 2.7rem;
+        width: 3rem;
+
+        & svg {
+            color: $color-white;
+            font-size: 1.3rem;
+            stroke-width: 2.5rem;
+        }
+    }
+}
