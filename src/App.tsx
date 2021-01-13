@@ -13,7 +13,6 @@ import { UserContext } from './context/userContext';
 function App() {
   const state = useContext(UserContext);
   const [userType, setUserType] = useState("All Users");
-  const [page, setPage] = useState(1);
   const [responseData, setResponseData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("")
@@ -23,32 +22,35 @@ function App() {
     setIsLoading(true);
 
     if (state?.userCategory === 'Female Users') {
-      getFemaleUsers({ page }).then((res) => {
+      getFemaleUsers(state?.page).then((res) => {
         setIsLoading(false)
         setResponseData(res?.results)
+        state?.handleUserData(res.results)
 
       }).catch(err => {
         setIsLoading(false)
       })
 
     } else if (state?.userCategory === 'Male Users') {
-      getMaleUsers({ page }).then((res) => {
+      getMaleUsers(state?.page).then((res) => {
         setIsLoading(false)
         setResponseData(res?.results)
+        state?.handleUserData(res.results)
 
       }).catch(err => {
         setIsLoading(false)
       })
     } else {
-      getAllUsers({ page }).then((res) => {
+      getAllUsers(state?.page).then((res) => {
         setIsLoading(false)
         setResponseData(res?.results)
+        state?.handleUserData(res.results)
 
       }).catch(err => {
         setIsLoading(false)
       })
     }
-  }, [state?.userCategory])
+  }, [state?.userCategory, state?.page])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);

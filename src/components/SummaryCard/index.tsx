@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import cx from 'classnames';
+import { useHistory } from 'react-router-dom';
 import { FiPhoneCall } from 'react-icons/fi';
 import { AiOutlineMail, AiOutlineArrowRight } from 'react-icons/ai';
 import styles from './Summarycard.module.scss';
@@ -11,12 +13,26 @@ type SummarycardType = {
     street: Record<string, string | number>,
     email: string,
     phone: string,
-    country?: string
+    country?: string,
+    uuid: string
 }
 
 
-function SummaryCard({ imgUrl, name, street, email, phone, country }: SummarycardType) {
+function SummaryCard({ imgUrl, name, street, email, phone, country, uuid }: SummarycardType) {
     const state = useContext(UserContext);
+    const history = useHistory();
+
+    const chooseColorBg = () => {
+        if (state?.userCategory === "All Users") {
+            return "bgAll"
+        }
+        else if (state?.userCategory === "Male Users") {
+            return "bgMale"
+        }
+        else {
+            return "bgFemale"
+        }
+    }
     return (
         <div className={styles.card}>
             <div className={styles.cardImage}>
@@ -30,11 +46,11 @@ function SummaryCard({ imgUrl, name, street, email, phone, country }: Summarycar
                     <span> <FiPhoneCall />{phone}</span>
                 </div>
             </div>
-            
-            <div className={styles.cardBtn}>
+
+            <div className={styles.cardBtn} onClick={() => history.push(`/${uuid}`)}>
                 <AiOutlineArrowRight />
             </div>
-            { state?.toggleCountry && <div className={styles.cardCountry}>{country}</div>}
+            { state?.toggleCountry && <div className={cx(styles.cardCountry, styles[chooseColorBg()])}>{country}</div>}
         </div>
     )
 }

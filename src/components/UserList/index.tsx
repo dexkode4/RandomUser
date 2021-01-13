@@ -15,7 +15,8 @@ interface IData {
     };
     picture: { large: string; medium: string; thumbnail: string };
     email: string,
-    phone: string
+    phone: string,
+    login: { uuid: string }
   }
   
 
@@ -29,8 +30,15 @@ function UserList({ data, isLoading }: UserListType) {
         <div className={styles.userlist}>
             { isLoading ? <p>loading...</p>
                 :
-                data?.map((user: IData) => (
-                    <SummaryCard imgUrl={user.picture.medium} name={user.name} street={user.location.street} email={user.email} phone={user.phone} country={user.location.country} />
+                data?.map((user: IData, index) => (
+                    <SummaryCard key={index}
+                                imgUrl={user.picture.medium}
+                                name={user.name} 
+                                street={user.location.street} 
+                                email={user.email} 
+                                phone={user.phone} 
+                                country={user.location.country}
+                                uuid={user.login.uuid} />
                 ))
             }
         </div>

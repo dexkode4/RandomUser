@@ -1,20 +1,7 @@
 import axios from 'axios';
 
-export const fetchUsers = async () => {
-    return await axios.get('https://randomuser.me/api', {
-        params: {
-            results: 50
-        }
-    })
-        .then((res) => {
-            return res.data && res.data;
-        }).catch(err => console.error(err))
-}
 
-interface IUsers {
-    page: number
-}
-export const getAllUsers = async ({ page }: IUsers) => {
+export const getAllUsers = async (page : number | undefined) => {
     return await axios.get('https://randomuser.me/api', {
         params: {
             results: 5,
@@ -27,7 +14,7 @@ export const getAllUsers = async ({ page }: IUsers) => {
 }
 
 
-export const getMaleUsers = async ({ page }: IUsers) => {
+export const getMaleUsers = async ( page: number | undefined) => {
     return await axios.get('https://randomuser.me/api', {
         params: {
             results: 5,
@@ -41,7 +28,7 @@ export const getMaleUsers = async ({ page }: IUsers) => {
 }
 
 
-export const getFemaleUsers = async ({ page }: IUsers) => {
+export const getFemaleUsers = async ( page: number | undefined) => {
     return await axios.get('https://randomuser.me/api', {
         params: {
             results: 5,

@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.downloadBtn{
+    background-color: $color-purple ;
+    border-radius: 2rem;
+    cursor: pointer;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    padding: .7rem 1rem;
+    width: max-content;
+    transition: all .2s ease-in;
+
+    &:hover{
+        transform: scale(1.05);
+    }
+
+    & span {
+        font-size: .8rem;
+    }
+
+    & svg {
+        font-size: 1.5rem;
+        margin-right: .8rem;
+    }
+}

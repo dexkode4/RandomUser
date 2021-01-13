@@ -76,7 +76,7 @@
 
         & svg {
             color: $color-white;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             stroke-width: 2.5rem;
         }
     }
@@ -88,8 +88,19 @@
         position: absolute;
         right: 0;
         top: 0;
-        background-color: $color-purple;
         padding: .3rem .5rem;
     }
 }
 
+
+.bgAll {
+    background-color: $color-pink;
+}
+
+.bgMale{
+    background-color: $color-torquoise;
+}
+
+.bgFemale {
+    background-color: $color-purple;
+}
