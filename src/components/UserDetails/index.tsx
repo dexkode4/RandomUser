@@ -8,7 +8,7 @@ import { IData } from '../../context/userContext'
 import styles from './UserDetails.module.scss';
 import { useHistory } from 'react-router-dom';
 import { FiPhoneCall } from 'react-icons/fi';
-import { AiOutlineMail, AiOutlineArrowRight } from 'react-icons/ai';
+import { AiOutlineMail } from 'react-icons/ai';
 
 
 function UserDetails() {
@@ -20,7 +20,7 @@ function UserDetails() {
     useEffect(() => {
         const search = state?.userData.find((user: IData) => user.login.uuid === match.userId);
         setUser(search)
-    }, [])
+    }, [match.userId, state?.userData])
 
 
     return (
