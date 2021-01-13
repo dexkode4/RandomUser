@@ -12,9 +12,10 @@ export interface IData {
     email: string,
     phone: string,
     login: { uuid: string }
-    dob: { age: number },
+    dob: { age: number, date: string },
     registered: { date: string },
-    cell : string
+    cell : string,
+    gender: string
 }
 interface ContextValues {
     userCategory: string;

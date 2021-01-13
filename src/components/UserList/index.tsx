@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import Header from '../Header';
+import React from 'react'
 import SummaryCard from '../SummaryCard';
 import styles from './UserList.module.scss';
-import { EmptyTableIcon } from '../../assets/svg'
 import Shimmer from '../Shimmer';
 
 
@@ -27,7 +25,6 @@ type UserListType = {
 }
 
 function UserList({ data, isLoading }: UserListType) {
-    const shimmerStore = new Array(5).fill("_");
     return (
         <div className={styles.userlist}>
             { isLoading ? <>
