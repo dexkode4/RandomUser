@@ -4,7 +4,7 @@ import App from './App';
 
 test('renders welcome message', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Welcome to your dashboard, kindly sort through the user base/i);
+  const linkElement = screen.getByText(/Welcome to your dashboard, kindl sort through the user base/i);
   expect(linkElement).toBeInTheDocument();
 });
 
