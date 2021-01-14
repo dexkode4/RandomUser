@@ -13,3 +13,11 @@ test('renders three categories of button', () => {
   const buttons = screen.getAllByRole('button');
   expect(buttons.length).toBe(3)
 });
+
+it('renders five summarycards', async () => {
+  render(<App />);
+  await waitFor(() => {
+    const summarycards = screen.getAllByTestId('summary-card')
+    expect(summarycards.length).toBe(5)
+  });
+});

@@ -11,8 +11,8 @@ function Footer() {
             <DownloadButton />
 
             <div className={styles.paginationBtn}>
-                <div className={styles.prev} onClick={() => state?.prevPage()}><BiChevronLeft /></div>
-                <div className={styles.next} onClick={() => state?.nextPage()}><BiChevronRight /></div>
+                <div className={styles.prev} onClick={() => state?.prevPage()} data-testid="prev"><BiChevronLeft /></div>
+                <div className={styles.next} onClick={() => state?.nextPage()} data-testid="next"><BiChevronRight /></div>
             </div>
         </div>
     )
