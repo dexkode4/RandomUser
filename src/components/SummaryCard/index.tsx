@@ -34,7 +34,7 @@ function SummaryCard({ imgUrl, name, street, email, phone, country, uuid }: Summ
         }
     }
     return (
-        <div className={styles.card}>
+        <div className={styles.card} data-testid="summary-card">
             <div className={styles.cardImage}>
                 <img src={imgUrl} alt={imgUrl} />
             </div>
