@@ -8,6 +8,7 @@ import styles from './Header.module.scss';
 type HeaderType = {
     handleChange: any
 }
+
 function Header({ handleChange }: HeaderType) {
     const state = useContext(UserContext);
     return (

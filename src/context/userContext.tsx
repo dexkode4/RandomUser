@@ -14,7 +14,7 @@ export interface IData {
     login: { uuid: string }
     dob: { age: number, date: string },
     registered: { date: string },
-    cell : string,
+    cell: string,
     gender: string
 }
 interface ContextValues {
@@ -26,7 +26,10 @@ interface ContextValues {
     nextPage: () => void,
     prevPage: () => void,
     userData: any,
-    handleUserData: (data: IData[]) => void
+    handleUserData: (data: IData[]) => void,
+    country: string,
+    handleFilterByCountry: (text: string) => void
+
 }
 
 
@@ -41,10 +44,14 @@ export const UserContextProvider = ({ children }: Propstype) => {
     const [userCategory, setUserCategory] = useState("All Users");
     const [toggleCountry, setToggleCountry] = useState(false);
     const [page, setPage] = useState(1)
-    const [userData, setUserData] = useState<IData[]>([])
+    const [userData, setUserData] = useState<IData[]>([]);
+    const [country, setCountry] = useState("");
 
     const handleUserCategory = (text: string) => {
         setUserCategory(text);
+    }
+    const handleFilterByCountry = (text: string) => {
+        setCountry(text);
     }
 
     const handleToggleCountry = () => {
@@ -80,7 +87,9 @@ export const UserContextProvider = ({ children }: Propstype) => {
             nextPage,
             prevPage,
             userData,
-            handleUserData
+            handleUserData,
+            country,
+            handleFilterByCountry
         }),
         [userCategory, handleUserCategory]
     );

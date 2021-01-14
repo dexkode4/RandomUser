@@ -9,7 +9,7 @@ import UserDetails from './components/UserDetails';
 import UserList from './components/UserList';
 import { getAllUsers, getMaleUsers, getFemaleUsers } from './API'
 import { UserContext } from './context/userContext';
-import {IData} from './context/userContext'
+import { IData } from './context/userContext'
 
 function App() {
   const state = useContext(UserContext);
@@ -58,10 +58,19 @@ function App() {
 
   useEffect(() => {
     let responseDataCopy = [...responseData];
-    responseDataCopy = responseDataCopy.filter((user: IData) => user.name.first.toLowerCase().includes(searchTerm.toLowerCase())
+    responseDataCopy = responseDataCopy.filter((user: IData) => {
+      return user.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.name.last.toLowerCase().includes(searchTerm.toLowerCase())
+    }
     )
     setResponseData(responseDataCopy)
   }, [searchTerm])
+
+  useEffect(() => {
+    let responseDataCopy = [...responseData];
+    responseDataCopy = responseDataCopy.filter((user: IData) => user.location.country === state?.country)
+    setResponseData(responseDataCopy)
+  }, [state?.country])
 
 
   return (

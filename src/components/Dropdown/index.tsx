@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import styles from './Dropdown.module.scss';
 import { IoMdArrowDropdown } from 'react-icons/io'
+import { UserContext } from '../../context/userContext';
+import { IData } from '../../context/userContext'
 
 function Dropdown() {
     const [isOpen, setIsOpen] = useState(false);
+    const state = useContext(UserContext);
 
     return (
         <>
@@ -11,12 +14,9 @@ function Dropdown() {
                 country <IoMdArrowDropdown />
                 {isOpen && <div className={styles.dropdownOptions}>
                     <ul>
-                        <li>Option one</li>
-                        <li>Option two</li>
-                        <li>Option three</li>
-                        <li>Option four</li>
-                        <li>Option five</li>
-                        <li>Option six</li>
+                        {state?.userData.map((data: IData) => (
+                            <li onClick={() => state.handleFilterByCountry(data.location.country)}>{data.location.country}</li>
+                        ))}
                     </ul>
                 </div>}
             </div>
