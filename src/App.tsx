@@ -9,10 +9,10 @@ import UserDetails from './components/UserDetails';
 import UserList from './components/UserList';
 import { getAllUsers, getMaleUsers, getFemaleUsers } from './API'
 import { UserContext } from './context/userContext';
+import {IData} from './context/userContext'
 
 function App() {
   const state = useContext(UserContext);
-  const [userType, setUserType] = useState("All Users");
   const [responseData, setResponseData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("")
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     let responseDataCopy = [...responseData];
-    responseDataCopy = responseDataCopy.filter((user: any) => user.name.first.toLowerCase().includes(searchTerm.toLowerCase())
+    responseDataCopy = responseDataCopy.filter((user: IData) => user.name.first.toLowerCase().includes(searchTerm.toLowerCase())
     )
     setResponseData(responseDataCopy)
   }, [searchTerm])
