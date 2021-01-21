@@ -17,7 +17,7 @@ This is a web-based application for viewing user details
 This project is implemented using React Typescript and modular scss
 
 ## Features
-
+* Download list as csv
 * Pagination
 * Search field by username
 * Search field by country name

@@ -17,6 +17,9 @@ function UserDetails() {
     const [user, setUser] = useState<IData | null>(null);
     const history = useHistory();
 
+    console.log("match ", match);
+
+
     useEffect(() => {
         const search = state?.userData.find((user: IData) => user.login.uuid === match.userId);
         setUser(search)
@@ -53,7 +56,7 @@ function UserDetails() {
                 </div>
             </div>
 
-            <div className={styles.overlay}/>
+            <div className={styles.overlay} />
         </div>
     )
 }
