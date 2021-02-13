@@ -1,0 +1,8 @@
+.userlist{
+    height: 70%;
+    overflow: scroll;
+    padding: 0 5rem;
+    @media (max-width: 450px){
+        padding: 0 2rem;
+     }
+}

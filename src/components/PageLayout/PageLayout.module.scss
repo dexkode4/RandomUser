@@ -4,11 +4,18 @@
     background: $color-darkViolet;
     height: 100vh;
     width: 100%;
+    @media (max-width: 450px){
+        height: auto;
+    }
     &Flex {
         display: flex;
         justify-content: space-between;
         width: 100%;
         height: 100%;
         padding: 1rem;
+
+        @media (max-width: 450px){
+            flex-direction: column;
+        }
     }
 }

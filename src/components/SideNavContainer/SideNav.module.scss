@@ -5,6 +5,13 @@
     justify-content: space-between;
     height: 10%;
     width: 60%;
+
+    & > * {
+        @media (max-width: 450px){
+           margin-right: 1rem;
+        }
+    }
+
 }
 
 .sideNav {
@@ -13,9 +20,13 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding: 0 6rem;
     width: 50%;
+    @media (max-width: 450px){
+        padding: 3rem 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
 
     & .showUser {
         color: $color-white;

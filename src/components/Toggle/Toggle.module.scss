@@ -6,6 +6,10 @@
     & span {
         font-size: .8rem;
     }
+    @media (max-width: 1235px ){
+        margin-top: 1rem;
+}
+
 }
 .toggle{
     background-color: $color-torquoise-1;

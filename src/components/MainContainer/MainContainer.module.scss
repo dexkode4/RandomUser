@@ -5,7 +5,14 @@
     border-radius: 1.75rem;
     height: 100%;
     overflow-y: scroll;
-    padding: 5rem;
     position: relative;
     width: 51%;
+
+    @media (max-width: 450px){
+       width: 100%;
+    }
+
+    &List{
+        border: 1px solid ;
+    }
 }

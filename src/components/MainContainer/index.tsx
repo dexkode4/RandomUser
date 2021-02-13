@@ -10,7 +10,7 @@ function MainContainer({ children }: MainContainerProps) {
     return (
         <div className={styles.mainContainer}>
             {children}
-            <Footer/>
+            <Footer />
         </div>
     )
 }
