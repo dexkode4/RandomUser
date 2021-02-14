@@ -3,6 +3,8 @@
     overflow: scroll;
     padding: 0 5rem;
     @media (max-width: 450px){
-        padding: 0 2rem;
+        padding: 2rem;
+        height: 30rem;
+        margin-bottom: 10rem;
      }
 }
