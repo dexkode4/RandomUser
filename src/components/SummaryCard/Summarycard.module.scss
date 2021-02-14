@@ -42,17 +42,25 @@
         flex-direction: column;
         justify-content: space-between;
         width: 70%;
-        
+       
         @media (max-width: 450px){
+            align-items: center;
             width: 100%;
+
         }
 
         & h1 {
             font-size: 1.2rem;
+            @media (max-width: 450px){
+                margin-bottom: 1rem;
+               }
         }
 
         & p {
             color: $color-darkGrey-2;
+            @media (max-width: 450px){
+                margin-bottom: .5rem;
+               }
         }
 
         &Contact{

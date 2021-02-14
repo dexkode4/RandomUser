@@ -17,8 +17,6 @@ function UserDetails() {
     const [user, setUser] = useState<IData | null>(null);
     const history = useHistory();
 
-    console.log("match ", match);
-
 
     useEffect(() => {
         const search = state?.userData.find((user: IData) => user.login.uuid === match.userId);
